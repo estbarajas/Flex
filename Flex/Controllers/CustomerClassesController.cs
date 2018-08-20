@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Flex.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Flex.Controllers
 {
@@ -51,8 +52,15 @@ namespace Flex.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,ClassId,FirstName,LastName,Email,UserId")] CustomerClasses customerClasses)
         {
+            var userId = User.Identity.GetUserId();
+            var customer = db.Customers.Where(c => c.UserId == userId).Single();
+
             if (ModelState.IsValid)
             {
+                customerClasses.FirstName = customer.FirstName;
+                customerClasses.LastName = customer.LastName;
+                customerClasses.Email = customer.Email;
+                customerClasses.UserId = customer.UserId;
                 db.CustomerClasses.Add(customerClasses);
                 db.SaveChanges();
                 return RedirectToAction("Index");

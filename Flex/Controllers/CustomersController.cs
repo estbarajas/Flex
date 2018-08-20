@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Flex.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Flex.Controllers
 {
@@ -52,6 +53,7 @@ namespace Flex.Controllers
         {
             if (ModelState.IsValid)
             {
+                customer.UserId = User.Identity.GetUserId();
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");

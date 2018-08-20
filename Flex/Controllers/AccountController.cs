@@ -168,6 +168,18 @@ namespace Flex.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
 
+                    if (model.UserRoles == "Manager")
+                    {
+                        return RedirectToAction("Create", "Managers");
+                    }
+                    if (model.UserRoles == "Employee")
+                    {
+                        return RedirectToAction("Create", "Trainers");
+                    }
+                    if (model.UserRoles == "Customer")
+                    {
+                        return RedirectToAction("Create", "Customers");
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
