@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -29,5 +30,20 @@ namespace Flex.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Flex.Models.Manager> Managers { get; set; }
+
+        //public System.Data.Entity.DbSet<Flex.Models.ApplicationUser> ApplicationUsers { get; set; }
+
+        public System.Data.Entity.DbSet<Flex.Models.Trainer> Trainers { get; set; }
+
+        public System.Data.Entity.DbSet<Flex.Models.Customer> Customers { get; set; }
+
+        public System.Data.Entity.DbSet<Flex.Models.Classes> Classes { get; set; }
+
+        public System.Data.Entity.DbSet<Flex.Models.CustomerClasses> CustomerClasses { get; set; }
+
+        //public System.Data.Entity.DbSet<Flex.Models.ApplicationUser> ApplicationUsers { get; set; }
+        //public IEnumerable ApplicationUsers { get; internal set; }
     }
 }

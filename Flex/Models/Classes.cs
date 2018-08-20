@@ -12,6 +12,10 @@ namespace Flex.Models
         public int Id { get; set; }
         [Display(Name = "Class Name")]
         public string Name { get; set; }
+
+        [Display(Name = "Day of Week")]
+        public string DayOfWeek { get; set; }
+
         [Display(Name = "Class Time")]
         public string Time { get; set; }
     }
