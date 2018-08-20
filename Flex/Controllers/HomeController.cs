@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ChargeBee.Api;
+using ChargeBee.Models;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,5 +29,18 @@ namespace Flex.Controllers
 
             return View();
         }
+
+        public ActionResult ChargeBee()
+        {
+            //ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Test()
+        {
+            return View();
+        }
+            
     }
 }
