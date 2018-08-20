@@ -22,8 +22,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Create Class", "Create", "Classes")</li>
-                    <li>@Html.ActionLink("Customer Plans", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("List of Classes", "Index", "Classes")</li>
+                    <li>@Html.ActionLink("Join Class", "Create", "CustomerClasses")</li>
+                    <li>@Html.ActionLink("My Classes", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -42,3 +43,5 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+

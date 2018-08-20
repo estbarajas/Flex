@@ -322,6 +322,7 @@
     <Content Include="Views\CustomerClasses\Edit.cshtml" />
     <Content Include="Views\CustomerClasses\Index.cshtml" />
     <Content Include="Views\Shared\ManagerView.cshtml" />
+    <Content Include="Views\Shared\CustomerView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
