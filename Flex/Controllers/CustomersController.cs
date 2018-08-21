@@ -16,6 +16,20 @@ namespace Flex.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Customers
+        public ActionResult GainCalculator(string Weight, string Height, string Age)
+        {
+            if (!String.IsNullOrEmpty(Weight)) //use this for day and bottom code run all time for zipcode
+            {
+                //var coupon = coupons.Where(s => s.Name.Contains(searchString)).Select(v => v.Value).First();
+                double BMR = 66 + (6.2 * Convert.ToInt32(Weight)) + (12.7 * Convert.ToInt32(Height)) - (6.76 * Convert.ToInt32(Age));
+                int number = Convert.ToInt32(Weight) + Convert.ToInt32(Height) + Convert.ToInt32(Age);
+                ViewBag.TotalWeight = number;
+            }
+
+            return View();
+        }
+
+        // GET: Customers
         public ActionResult Index()
         {
             var customers = db.Customers.Include(c => c.User);

@@ -1,0 +1,22 @@
+﻿@model Flex.Models.Customer
+
+@{
+    ViewBag.Title = "GainCalculator";
+}
+
+<h2>GainCalculator</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <h6>Enter Weight (pounds):</h6> @Html.TextBox("Weight")
+        <h6>Enter Height (inches):</h6> @Html.TextBox("Height")
+        <h6>Enter Age (years):</h6> @Html.TextBox("Age")
+        <input type="submit" value="Calculate" />
+    </p>
+}
+
+<h4>Calories/day to maintain your weight:</h4>
+<h4>Calories/day to gain 1 lb per week:</h4>
+<h4>Total weight: @ViewBag.TotalWeight</h4>
+
