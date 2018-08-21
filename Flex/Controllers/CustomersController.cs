@@ -51,8 +51,12 @@ namespace Flex.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Email,PhoneNumber,MembershipId,UserId")] Customer customer)
         {
+            var userId = User.Identity.GetUserId();
+            var theCustomer = db.Users.Where(c => c.Id == userId).Single();
+
             if (ModelState.IsValid)
             {
+                customer.Email = theCustomer.Email;
                 customer.UserId = User.Identity.GetUserId();
                 db.Customers.Add(customer);
                 db.SaveChanges();
