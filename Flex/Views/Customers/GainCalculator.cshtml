@@ -16,9 +16,9 @@
     genders.Add(female);
 
     List<SelectListItem> activityLevel = new List<SelectListItem>();
-    SelectListItem lightExercise = new SelectListItem() { Text = "Light Exercise", Value = "1.2", Selected = false };
-    SelectListItem moderateExercise = new SelectListItem() { Text = "Moderate Exercise", Value = "1.375", Selected = false };
-    SelectListItem hardExercise = new SelectListItem() { Text = "Hard Exercise", Value = "1.55", Selected = false };
+    SelectListItem lightExercise = new SelectListItem() { Text = "Light Exercise", Value = "1.375", Selected = false };
+    SelectListItem moderateExercise = new SelectListItem() { Text = "Moderate Exercise", Value = "1.55", Selected = false };
+    SelectListItem hardExercise = new SelectListItem() { Text = "Hard Exercise", Value = "1.725", Selected = false };
     activityLevel.Add(lightExercise);
     activityLevel.Add(moderateExercise);
     activityLevel.Add(hardExercise);
@@ -33,9 +33,9 @@
     </p>
 }
 
-<h4>Calories/day to maintain your weight:</h4>
-<h4>Calories/day to gain 1 lb per week:</h4>
-<h4>BMR: @ViewBag.BMR</h4>
-<h4>@ViewBag.genderx</h4>
-<h4>acitivity levle: @ViewBag.activity</h4>
+<h4>Calories/day to maintain your weight: @ViewBag.caloriesToMaintainWeight</h4>
+<h4>Calories/day to gain 1 lb per week: @ViewBag.caloriesToGainOnePoundPerWeek</h4>
+<h4>Calories/day to gain 2 lb per week: @ViewBag.caloriesToGainTwoPoundsPerWeek </h4>
+
+
 

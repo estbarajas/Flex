@@ -28,21 +28,28 @@ namespace Flex.Controllers
 
             if (!String.IsNullOrEmpty(Weight) && genders.Equals("Male")) //use this for day and bottom code run all time for zipcode
             {
-                //var coupon = coupons.Where(s => s.Name.Contains(searchString)).Select(v => v.Value).First();
-                //int number = Convert.ToInt32(Weight) + Convert.ToInt32(Height) + Convert.ToInt32(Age);
+               
+                double maleBMR = 66 + (6.2 * Convert.ToDouble(Weight)) + (12.7 * Convert.ToDouble(Height)) - (6.76 * Convert.ToDouble(Age));
+                double caloriesToMaintainWeight = maleBMR * Convert.ToDouble(activityLevel);
+                double caloriesToGainOnePoundPerWeek = caloriesToMaintainWeight + 500;
+                double caloriesToGainTwoPoundsPerWeek = caloriesToGainOnePoundPerWeek + 500;
 
-
-                double BMR = 66 + (6.2 * Convert.ToDouble(Weight)) + (12.7 * Convert.ToDouble(Height)) - (6.76 * Convert.ToDouble(Age));
-                double caloriesToGainOnePoundPerWeek;
-                double caloriesToMaintainWeight; 
-                
-                ViewBag.BMR = BMR;
-                ViewBag.genderx = genders;
-                ViewBag.activity = activityLevel;
+                ViewBag.caloriesToMaintainWeight = caloriesToMaintainWeight;
+                ViewBag.caloriesToGainOnePoundPerWeek = caloriesToGainOnePoundPerWeek;
+                ViewBag.caloriesToGainTwoPoundsPerWeek = caloriesToGainTwoPoundsPerWeek;
             }
             else if(!String.IsNullOrEmpty(Weight) && genders.Equals("Female"))
             {
+                double femaleBMR = 655.1 + (4.35 * Convert.ToDouble(Weight)) +(4.7 * Convert.ToDouble(Height)) -(4.7 * Convert.ToDouble(Age));
+                double caloriesToMaintainWeight = femaleBMR * Convert.ToDouble(activityLevel);
+                double caloriesToGainOnePoundPerWeek = caloriesToMaintainWeight + 500;
+                double caloriesToGainTwoPoundsPerWeek = caloriesToGainOnePoundPerWeek + 500;
 
+
+                //ViewBag.BMR = femaleBMR;
+                ViewBag.caloriesToMaintainWeight = caloriesToMaintainWeight;
+                ViewBag.caloriesToGainOnePoundPerWeek = caloriesToGainOnePoundPerWeek;
+                ViewBag.caloriesToGainTwoPoundsPerWeek = caloriesToGainTwoPoundsPerWeek;
             }
 
             return View();
