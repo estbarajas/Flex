@@ -8,8 +8,10 @@ namespace Flex.Models
 {
     public class Classes
     {
+        
         [Key]
         public int Id { get; set; }
+
         [Display(Name = "Class Name")]
         public string Name { get; set; }
 

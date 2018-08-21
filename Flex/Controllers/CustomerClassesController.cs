@@ -18,8 +18,11 @@ namespace Flex.Controllers
         // GET: CustomerClasses
         public ActionResult Index()
         {
-            var customerClasses = db.CustomerClasses.Include(c => c.Class).Include(c => c.User);
-            return View(customerClasses.ToList());
+            var userId = User.Identity.GetUserId();
+            //var employee = db.Employees.Include(e => e.Order).Where(c => c.UserId == thisUser).ToList();
+
+            var customerClasses = db.CustomerClasses.Include(c => c.Class).Where(c => c.UserId == userId).ToList();
+            return View(customerClasses);
         }
 
         // GET: CustomerClasses/Details/5
