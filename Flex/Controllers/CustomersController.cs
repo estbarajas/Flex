@@ -31,10 +31,17 @@ namespace Flex.Controllers
                
                 double maleBMR = 66 + (6.2 * Convert.ToDouble(Weight)) + (12.7 * Convert.ToDouble(Height)) - (6.76 * Convert.ToDouble(Age));
                 double caloriesToMaintainWeight = maleBMR * Convert.ToDouble(activityLevel);
+
+                double caloriesToLoseOnePoundPerWeek = caloriesToMaintainWeight - 500;
+                double caloriesToLoseTwoPoundsPerWeek = caloriesToLoseOnePoundPerWeek - 500;
+
                 double caloriesToGainOnePoundPerWeek = caloriesToMaintainWeight + 500;
                 double caloriesToGainTwoPoundsPerWeek = caloriesToGainOnePoundPerWeek + 500;
 
                 ViewBag.caloriesToMaintainWeight = caloriesToMaintainWeight;
+                ViewBag.caloriesToLoseOnePoundPerWeek = caloriesToLoseOnePoundPerWeek;
+                ViewBag.caloriesToLoseTwoPoundsPerWeek = caloriesToLoseTwoPoundsPerWeek;
+
                 ViewBag.caloriesToGainOnePoundPerWeek = caloriesToGainOnePoundPerWeek;
                 ViewBag.caloriesToGainTwoPoundsPerWeek = caloriesToGainTwoPoundsPerWeek;
             }
@@ -42,12 +49,17 @@ namespace Flex.Controllers
             {
                 double femaleBMR = 655.1 + (4.35 * Convert.ToDouble(Weight)) +(4.7 * Convert.ToDouble(Height)) -(4.7 * Convert.ToDouble(Age));
                 double caloriesToMaintainWeight = femaleBMR * Convert.ToDouble(activityLevel);
+
+                double caloriesToLoseOnePoundPerWeek = caloriesToMaintainWeight - 500;
+                double caloriesToLoseTwoPoundsPerWeek = caloriesToLoseOnePoundPerWeek - 500;
+
                 double caloriesToGainOnePoundPerWeek = caloriesToMaintainWeight + 500;
                 double caloriesToGainTwoPoundsPerWeek = caloriesToGainOnePoundPerWeek + 500;
 
-
-                //ViewBag.BMR = femaleBMR;
                 ViewBag.caloriesToMaintainWeight = caloriesToMaintainWeight;
+                ViewBag.caloriesToLoseOnePoundPerWeek = caloriesToLoseOnePoundPerWeek;
+                ViewBag.caloriesToLoseTwoPoundsPerWeek = caloriesToLoseTwoPoundsPerWeek;
+
                 ViewBag.caloriesToGainOnePoundPerWeek = caloriesToGainOnePoundPerWeek;
                 ViewBag.caloriesToGainTwoPoundsPerWeek = caloriesToGainTwoPoundsPerWeek;
             }

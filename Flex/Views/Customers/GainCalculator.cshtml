@@ -28,12 +28,23 @@
         <h6>Select Activity Level:</h6> @Html.DropDownList("activityLevel", activityLevel, "Activity level", new { @class = "css-class" })
         <h6>Enter Weight (pounds):</h6> @Html.TextBox("Weight")
         <h6>Enter Height (inches):</h6> @Html.TextBox("Height")
-        <h6>Enter Age (years):</h6> @Html.TextBox("Age")     
+        <h6>Enter Age (years):</h6> @Html.TextBox("Age")    
+        <br/><br/>
         <input type="submit" value="Calculate" />
     </p>
 }
 
+<br/>
+
 <h4>Calories/day to maintain your weight: @ViewBag.caloriesToMaintainWeight</h4>
+
+<br/>
+
+<h4>Calories/day to lose 1 lb per week: @ViewBag.caloriesToLoseOnePoundPerWeek</h4>
+<h4>Calories/day to lose 2 lb per week: @ViewBag.caloriesToLoseTwoPoundsPerWeek </h4>
+
+<br/>
+
 <h4>Calories/day to gain 1 lb per week: @ViewBag.caloriesToGainOnePoundPerWeek</h4>
 <h4>Calories/day to gain 2 lb per week: @ViewBag.caloriesToGainTwoPoundsPerWeek </h4>
 
