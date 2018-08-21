@@ -16,14 +16,33 @@ namespace Flex.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Customers
-        public ActionResult GainCalculator(string Weight, string Height, string Age)
+        public ActionResult GainCalculator(string Weight, string Height, string Age, string genders, string activityLevel)
         {
-            if (!String.IsNullOrEmpty(Weight)) //use this for day and bottom code run all time for zipcode
+            //List<SelectListItem> genders = new List<SelectListItem>();
+            //SelectListItem male = new SelectListItem() { Text = "Male", Value = "Male", Selected = true };
+            //SelectListItem female = new SelectListItem() { Text = "Female", Value = "Female", Selected = false };
+            //genders.Add(male);
+            //genders.Add(female);
+
+            //ViewBag.Genders = genders;
+
+            if (!String.IsNullOrEmpty(Weight) && genders.Equals("Male")) //use this for day and bottom code run all time for zipcode
             {
                 //var coupon = coupons.Where(s => s.Name.Contains(searchString)).Select(v => v.Value).First();
-                double BMR = 66 + (6.2 * Convert.ToInt32(Weight)) + (12.7 * Convert.ToInt32(Height)) - (6.76 * Convert.ToInt32(Age));
-                int number = Convert.ToInt32(Weight) + Convert.ToInt32(Height) + Convert.ToInt32(Age);
-                ViewBag.TotalWeight = number;
+                //int number = Convert.ToInt32(Weight) + Convert.ToInt32(Height) + Convert.ToInt32(Age);
+
+
+                double BMR = 66 + (6.2 * Convert.ToDouble(Weight)) + (12.7 * Convert.ToDouble(Height)) - (6.76 * Convert.ToDouble(Age));
+                double caloriesToGainOnePoundPerWeek;
+                double caloriesToMaintainWeight; 
+                
+                ViewBag.BMR = BMR;
+                ViewBag.genderx = genders;
+                ViewBag.activity = activityLevel;
+            }
+            else if(!String.IsNullOrEmpty(Weight) && genders.Equals("Female"))
+            {
+
             }
 
             return View();

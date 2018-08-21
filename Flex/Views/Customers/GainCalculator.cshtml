@@ -8,15 +8,34 @@
 
 @using (Html.BeginForm())
 {
+
+    List<SelectListItem> genders = new List<SelectListItem>();
+    SelectListItem male = new SelectListItem() { Text = "Male", Value = "Male", Selected = false };
+    SelectListItem female = new SelectListItem() { Text = "Female", Value = "Female", Selected = false };
+    genders.Add(male);
+    genders.Add(female);
+
+    List<SelectListItem> activityLevel = new List<SelectListItem>();
+    SelectListItem lightExercise = new SelectListItem() { Text = "Light Exercise", Value = "1.2", Selected = false };
+    SelectListItem moderateExercise = new SelectListItem() { Text = "Moderate Exercise", Value = "1.375", Selected = false };
+    SelectListItem hardExercise = new SelectListItem() { Text = "Hard Exercise", Value = "1.55", Selected = false };
+    activityLevel.Add(lightExercise);
+    activityLevel.Add(moderateExercise);
+    activityLevel.Add(hardExercise);
+
     <p>
+        <h6>Select Gender:</h6> @Html.DropDownList("genders", genders, "Gender", new { @class = "css-class" })
+        <h6>Select Activity Level:</h6> @Html.DropDownList("activityLevel", activityLevel, "Activity level", new { @class = "css-class" })
         <h6>Enter Weight (pounds):</h6> @Html.TextBox("Weight")
         <h6>Enter Height (inches):</h6> @Html.TextBox("Height")
-        <h6>Enter Age (years):</h6> @Html.TextBox("Age")
+        <h6>Enter Age (years):</h6> @Html.TextBox("Age")     
         <input type="submit" value="Calculate" />
     </p>
 }
 
 <h4>Calories/day to maintain your weight:</h4>
 <h4>Calories/day to gain 1 lb per week:</h4>
-<h4>Total weight: @ViewBag.TotalWeight</h4>
+<h4>BMR: @ViewBag.BMR</h4>
+<h4>@ViewBag.genderx</h4>
+<h4>acitivity levle: @ViewBag.activity</h4>
 
