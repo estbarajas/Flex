@@ -323,7 +323,7 @@
     <Content Include="Views\CustomerClasses\Index.cshtml" />
     <Content Include="Views\Shared\ManagerView.cshtml" />
     <Content Include="Views\Shared\CustomerView.cshtml" />
-    <Content Include="Views\Customers\GainCalculator.cshtml" />
+    <Content Include="Views\Customers\WeightCalculator.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

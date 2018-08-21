@@ -16,7 +16,7 @@ namespace Flex.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Customers
-        public ActionResult GainCalculator(string Weight, string Height, string Age, string genders, string activityLevel)
+        public ActionResult WeightCalculator(string Weight, string Height, string Age, string genders, string activityLevel)
         {
             //List<SelectListItem> genders = new List<SelectListItem>();
             //SelectListItem male = new SelectListItem() { Text = "Male", Value = "Male", Selected = true };
