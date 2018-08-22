@@ -43,8 +43,8 @@
             <div class="col-sm-6 col-md-4">
                 <div class="inner-content text-center">
 
-                    <div class="c100 @ViewBag.P30 dark big center orange">
-                        <span>25%</span>
+                    <div class="c100 @ViewBag.PClass dark big center orange">
+                        <span>@ViewBag.Progress%</span>
                         <div class="slice"><div class="bar"></div><div class="fill"></div></div>
                     </div>
 
@@ -59,6 +59,8 @@
 
 
 <h1>Should say 50: @ViewBag.ChangeOne</h1>
+<h2>Should say 25: @ViewBag.ChangeTwo</h2>
+<h2>Should say 50: @ViewBag.Progress</h2>
 
 
     <script>

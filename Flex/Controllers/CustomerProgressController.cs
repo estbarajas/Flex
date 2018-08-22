@@ -23,10 +23,17 @@ namespace Flex.Controllers
             var firstProgressEntry = db.CustomerProgresses.OrderBy(c => c.Id).Where(c => c.UserId == userId).FirstOrDefault();
             //var object1 = lastProgressEntry.las
 
-            var changeOne = Convert.ToInt32(firstProgressEntry.CurrentWeight) - Convert.ToInt32(lastProgressEntry.WeightGoal);
+            var changeOne = Math.Abs(Convert.ToInt32(firstProgressEntry.CurrentWeight) - Convert.ToInt32(lastProgressEntry.WeightGoal));
+            var changeTwo = Math.Abs(Convert.ToInt32(firstProgressEntry.CurrentWeight) - Convert.ToInt32(lastProgressEntry.CurrentWeight));
+            decimal progressDecimal = (Convert.ToDecimal(changeTwo) / Convert.ToDecimal(changeOne)) * 100;
+            int progressInt = Convert.ToInt32(progressDecimal);
 
-            ViewBag.P30 = "p80";
+            ViewBag.Progress = progressInt;
+            ViewBag.PClass = "p" + progressInt;
             ViewBag.ChangeOne = changeOne;
+            ViewBag.ChangeTwo = changeTwo;
+            
+
             return View();
         }
 
