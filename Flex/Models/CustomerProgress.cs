@@ -13,6 +13,7 @@ namespace Flex.Models
         public int Id { get; set; }
 
         [Display(Name = "Progress Date")]
+        [DisplayFormat(DataFormatString = "{0:MMM dd yyyy}")]
         public DateTime ProgressDate { get; set; }
 
         [Display(Name = "Current Weight")]
