@@ -200,6 +200,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\CustomerClassesController.cs" />
+    <Compile Include="Controllers\CustomerProgressController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -224,11 +225,20 @@
     <Compile Include="Migrations\201808201851189_lmaokai.Designer.cs">
       <DependentUpon>201808201851189_lmaokai.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808220103385_customerprogress.cs" />
+    <Compile Include="Migrations\201808220103385_customerprogress.Designer.cs">
+      <DependentUpon>201808220103385_customerprogress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808220121066_forgot the datetime public.cs" />
+    <Compile Include="Migrations\201808220121066_forgot the datetime public.Designer.cs">
+      <DependentUpon>201808220121066_forgot the datetime public.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerClasses.cs" />
+    <Compile Include="Models\CustomerProgress.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -324,6 +334,11 @@
     <Content Include="Views\Shared\ManagerView.cshtml" />
     <Content Include="Views\Shared\CustomerView.cshtml" />
     <Content Include="Views\Customers\WeightCalculator.cshtml" />
+    <Content Include="Views\CustomerProgress\Create.cshtml" />
+    <Content Include="Views\CustomerProgress\Delete.cshtml" />
+    <Content Include="Views\CustomerProgress\Details.cshtml" />
+    <Content Include="Views\CustomerProgress\Edit.cshtml" />
+    <Content Include="Views\CustomerProgress\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -353,6 +368,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808201851189_lmaokai.resx">
       <DependentUpon>201808201851189_lmaokai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808220103385_customerprogress.resx">
+      <DependentUpon>201808220103385_customerprogress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808220121066_forgot the datetime public.resx">
+      <DependentUpon>201808220121066_forgot the datetime public.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

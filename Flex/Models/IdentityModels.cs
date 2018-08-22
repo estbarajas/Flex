@@ -43,6 +43,10 @@ namespace Flex.Models
 
         public System.Data.Entity.DbSet<Flex.Models.CustomerClasses> CustomerClasses { get; set; }
 
+        public System.Data.Entity.DbSet<Flex.Models.CustomerProgress> CustomerProgresses { get; set; }
+
+        //public System.Data.Entity.DbSet<Flex.Models.ApplicationUser> ApplicationUsers { get; set; }
+
         //public System.Data.Entity.DbSet<Flex.Models.ApplicationUser> ApplicationUsers { get; set; }
         //public IEnumerable ApplicationUsers { get; internal set; }
     }
