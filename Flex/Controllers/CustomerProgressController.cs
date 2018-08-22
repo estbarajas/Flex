@@ -30,9 +30,8 @@ namespace Flex.Controllers
 
             ViewBag.Progress = progressInt;
             ViewBag.PClass = "p" + progressInt;
-            ViewBag.ChangeOne = changeOne;
-            ViewBag.ChangeTwo = changeTwo;
-            
+            ViewBag.WeightStart = firstProgressEntry.CurrentWeight;
+            ViewBag.WeightGoal = lastProgressEntry.WeightGoal;
 
             return View();
         }
@@ -40,8 +39,9 @@ namespace Flex.Controllers
         // GET: CustomerProgress
         public ActionResult Index()
         {
-            var customerProgresses = db.CustomerProgresses.Include(c => c.User);
-            return View(customerProgresses.ToList());
+            var userId = User.Identity.GetUserId();
+            var customerProgressEntries = db.CustomerProgresses.Where(c => c.UserId == userId).ToList();
+            return View(customerProgressEntries);
         }
 
         // GET: CustomerProgress/Details/5
