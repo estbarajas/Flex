@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Bar";
+}
+
+<h2>Bar</h2>
+
+<!-- progress bar -->
+
+<div class="container">
+
+    <h1 class="text-center">Pure CSS Circular Progress Bars</h1>
+    <p><a href="https://github.com/jumpifzero/purecss-circular-progress-bar" class="text-center">https://github.com/jumpifzero/purecss-circular-progress-bar</a></p>
+   
+        <div class="row">
+
+            <div class="col-sm-12 col-md-4">
+                <div class="inner-content text-center">
+
+                    <div class="c100 p75 dark big center">
+                        <span>75%</span>
+                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                    </div>
+
+                    <p>.big.dark</p>
+
+                </div>
+            </div><!-- /.col -->
+
+            <div class="col-sm-6 col-md-4">
+                <div class="inner-content text-center">
+
+                    <div class="c100 p50 dark big center green">
+                        <span>50%</span>
+                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                    </div>
+
+                    <p>.big.dark.green</p>
+
+                </div>
+            </div><!-- /.col -->
+
+            <div class="col-sm-6 col-md-4">
+                <div class="inner-content text-center">
+
+                    <div class="c100 p25 dark big center orange">
+                        <span>25%</span>
+                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                    </div>
+
+                    <p>.big.dark.orange</p>
+
+                </div>
+            </div><!-- /.col -->
+
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            $('.progressWrapper progress').each(function () {
+                var prgsVal = $(this).data('value');
+                var maxN = $(this).attr('max');
+                var pop = prgsVal / maxN * 100
+
+                $(this).prev().css('left', pop + '%').text(prgsVal);
+                $(this).val(prgsVal);
+            });
+        });
+
+    </script>
+

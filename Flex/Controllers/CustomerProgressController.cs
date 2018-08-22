@@ -15,6 +15,12 @@ namespace Flex.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult Bar()
+        {
+            //var customerProgresses = db.CustomerProgresses.Include(c => c.User);
+            return View();
+        }
+
         // GET: CustomerProgress
         public ActionResult Index()
         {
