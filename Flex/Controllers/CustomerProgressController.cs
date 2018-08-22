@@ -17,7 +17,16 @@ namespace Flex.Controllers
 
         public ActionResult Bar()
         {
+            var userId = User.Identity.GetUserId();
             //var customerProgresses = db.CustomerProgresses.Include(c => c.User);
+            var lastProgressEntry = db.CustomerProgresses.OrderByDescending(c => c.Id).Where(c => c.UserId == userId).FirstOrDefault();
+            var firstProgressEntry = db.CustomerProgresses.OrderBy(c => c.Id).Where(c => c.UserId == userId).FirstOrDefault();
+            //var object1 = lastProgressEntry.las
+
+            var changeOne = Convert.ToInt32(firstProgressEntry.CurrentWeight) - Convert.ToInt32(lastProgressEntry.WeightGoal);
+
+            ViewBag.P30 = "p80";
+            ViewBag.ChangeOne = changeOne;
             return View();
         }
 
