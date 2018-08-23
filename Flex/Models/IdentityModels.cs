@@ -37,7 +37,7 @@ namespace Flex.Models
 
         public System.Data.Entity.DbSet<Flex.Models.Trainer> Trainers { get; set; }
 
-        public System.Data.Entity.DbSet<Flex.Models.Customer> Customers { get; set; }
+        public System.Data.Entity.DbSet<Flex.Models.FlexCustomer> Customers { get; set; }
 
         public System.Data.Entity.DbSet<Flex.Models.Classes> Classes { get; set; }
 

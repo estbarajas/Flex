@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ChargeBee.Api;
+using ChargeBee.Models;
 using Flex.Models;
 using Microsoft.AspNet.Identity;
 
@@ -67,6 +69,48 @@ namespace Flex.Controllers
             return View();
         }
 
+        public ActionResult Subscribe()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Subscribe(string flexPlan)
+        {
+            var userId = User.Identity.GetUserId();
+            var theCustomer = db.Customers.Where(c => c.UserId == userId).Single();
+
+            ApiConfig.Configure("flexgym-test", "test_To2cdjCqEpFHZiGqThAzu07jy0xeFnjZD");
+            EntityResult result = Subscription.Create()
+                              .PlanId("basic-flex-plan")
+                              .CardFirstName(theCustomer.FirstName)
+                              .CardLastName(theCustomer.LastName)
+                              .CardNumber("4111111111111111")
+                              .CardExpiryMonth(10)
+                              .CardExpiryYear(2022)
+                              .CardCvv("999")
+                              .CustomerEmail(theCustomer.FirstName + "@test.com")
+                              .CustomerFirstName(theCustomer.FirstName)
+                              .CustomerLastName(theCustomer.LastName)
+                              .CustomerLocale("fr-CA")
+                              .CustomerPhone("+1-949-999-9999")
+                              .Request();
+            Subscription subscription = result.Subscription;
+            ChargeBee.Models.Customer customer = result.Customer;
+            Card card = result.Card;
+            Invoice invoice = result.Invoice;
+            List<UnbilledCharge> unbilledCharges = result.UnbilledCharges;
+
+            //if (ModelState.IsValid)
+            //{
+            //    db.Entry(customer).State = EntityState.Modified;
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+
+            return RedirectToAction("Subscribe");
+        }
+
         // GET: Customers
         public ActionResult Index()
         {
@@ -81,7 +125,7 @@ namespace Flex.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            FlexCustomer customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -101,7 +145,7 @@ namespace Flex.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Email,PhoneNumber,MembershipId,UserId")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Email,PhoneNumber,MembershipId,UserId")] FlexCustomer customer)
         {
             var userId = User.Identity.GetUserId();
             var theCustomer = db.Users.Where(c => c.Id == userId).Single();
@@ -126,7 +170,7 @@ namespace Flex.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            FlexCustomer customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -140,7 +184,7 @@ namespace Flex.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email,PhoneNumber,MembershipId,UserId")] Customer customer)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email,PhoneNumber,MembershipId,UserId")] FlexCustomer customer)
         {
             if (ModelState.IsValid)
             {
@@ -159,7 +203,7 @@ namespace Flex.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            FlexCustomer customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -172,7 +216,7 @@ namespace Flex.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customers.Find(id);
+            FlexCustomer customer = db.Customers.Find(id);
             db.Customers.Remove(customer);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Flex.Models
 {
-    public class Customer
+    public class FlexCustomer
     {
         [Key]
         public int Id { get; set; }
