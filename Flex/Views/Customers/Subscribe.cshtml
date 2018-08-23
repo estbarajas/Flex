@@ -1,15 +1,52 @@
 ﻿@model Flex.Models.FlexCustomer
 
 @{
-                /**/
+    /**/
 
-                ViewBag.Title = "Subscribe";
+    ViewBag.Title = "Subscribe";
 }
 
 <h2>Subscribe</h2>
 
 @using (Html.BeginForm())
 {
+
+    List<SelectListItem> flexPlans = new List<SelectListItem>();
+    SelectListItem lightExercise = new SelectListItem() { Text = "Basic Flex Plan", Value = "basic-flex-plan", Selected = false };
+    SelectListItem moderateExercise = new SelectListItem() { Text = "Intermediate Flex Plan", Value = "intermediate-flex-plan", Selected = false };
+    SelectListItem hardExercise = new SelectListItem() { Text = "Pro Flex Plan", Value = "pro-flex-plan", Selected = false };
+    flexPlans.Add(lightExercise);
+    flexPlans.Add(moderateExercise);
+    flexPlans.Add(hardExercise);
+
+    <p>
+        <h6>Select Flex Plan:</h6> @Html.DropDownList("flexPlans", flexPlans, "Flex Plans", new { @class = "css-class" })
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Submit Plan" class="btn btn-default" />
