@@ -19,7 +19,7 @@ namespace Flex.Models
         public string Email { get; set; }
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
-        [Display(Name = "Membership Id")]
+        [Display(Name = "Membership Plan")]
         public string MembershipId { get; set; }
 
         [ForeignKey("User")]
