@@ -75,10 +75,11 @@ namespace Flex.Controllers
         }
 
         [HttpPost]
-        public ActionResult Subscribe(string flexPlan)
+        public ActionResult Subscribe([Bind(Include = "Id,FirstName,LastName,Email,PhoneNumber,MembershipId,UserId")] FlexCustomer flexCustomer)
         {
             var userId = User.Identity.GetUserId();
             var theCustomer = db.Customers.Where(c => c.UserId == userId).Single();
+            //var theCustomer = db.Customers.Where(c => c.UserId == userId).Single();
 
             ApiConfig.Configure("flexgym-test", "test_To2cdjCqEpFHZiGqThAzu07jy0xeFnjZD");
             EntityResult result = Subscription.Create()
@@ -101,12 +102,17 @@ namespace Flex.Controllers
             Invoice invoice = result.Invoice;
             List<UnbilledCharge> unbilledCharges = result.UnbilledCharges;
 
-            //if (ModelState.IsValid)
-            //{
-            //    db.Entry(customer).State = EntityState.Modified;
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
+            if (ModelState.IsValid)
+            {
+                theCustomer.MembershipId = "basic-flex-plan";
+                //flexCustomer.MembershipId = "basic-flex-plan";
+                //flexcustomer.Email = theCustomer.Email;
+                //flexcustomer.UserId = User.Identity.GetUserId();
+                //db.Customers.Add(customer);
+                //db.Entry(flexCustomer).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
 
             return RedirectToAction("Subscribe");
         }
