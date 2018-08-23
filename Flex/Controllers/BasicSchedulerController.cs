@@ -18,7 +18,7 @@ namespace Flex.Controllers
         public ActionResult Index()
         {
             var sched = new DHXScheduler(this);
-            sched.Skin = DHXScheduler.Skins.Terrace;
+            sched.Skin = DHXScheduler.Skins.Glossy;
             sched.LoadData = true;
             sched.EnableDataprocessor = true;
             sched.InitialDate = new DateTime(2016, 5, 5);
@@ -27,8 +27,12 @@ namespace Flex.Controllers
 
         public ContentResult Data()
         {
+            string currentUser = User.Identity.GetUserId();
+            var appointments = db.Events.Where(e => e.UserId == currentUser).ToList();
 
-            var allEvents = from e in db.Events select e;
+            return new SchedulerAjaxData(appointments);
+
+            //var allEvents = from e in db.Events select e;
 
             //return (new SchedulerAjaxData(
             //    new ApplicationDbContext().Events
@@ -39,7 +43,23 @@ namespace Flex.Controllers
 
             //var allEventsList;
 
-            return new SchedulerAjaxData(allEvents.ToList());
+            //return new SchedulerAjaxData(allEvents.ToList());
+            /////var userId = User.Identity.GetUserId();
+
+            ///// var thisEvent = from s in db.Events
+            ///select s;
+
+            //var stylists = db.Stylists.ToList();
+            /////string currentUser = User.Identity.GetUserId();
+            //var stylistInfo = db.Stylists.Where(c => c.UserId == currentUser).FirstOrDefault();
+            /////var myEvent = thisEvent.Where(e => e.UserId == userId);
+
+            /////return new SchedulerAjaxData(myEvent.ToList());
+
+
+
+
+
 
         }
 
