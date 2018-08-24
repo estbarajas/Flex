@@ -173,7 +173,7 @@ namespace Flex.Controllers
                 customer.UserId = User.Identity.GetUserId();
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Account");
             }
 
             //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", customer.UserId);

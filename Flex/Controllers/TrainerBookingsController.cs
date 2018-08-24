@@ -48,8 +48,8 @@ namespace Flex.Controllers
 
         public void SendEmails()
         {
-            MailMessage o = new MailMessage("EnterEmailSendingFrom", "EnterEmailSendingFrom", "New Booking Request", "A new session request has been made!");
-            NetworkCredential netCred = new NetworkCredential("EnterEmailSendingFrom", "ThePassword");
+            MailMessage o = new MailMessage("ENTER-FROM-EMAIL", "ENTER-TO-EMAIL", "New Booking Request", "A new session request has been made!");
+            NetworkCredential netCred = new NetworkCredential("ENTER-FROM-EMAIL", "ENTER-FROM-PASSWORD");
             SmtpClient smtpobj = new SmtpClient("smtp.live.com", 587);
             smtpobj.EnableSsl = true;
             smtpobj.Credentials = netCred;
@@ -76,7 +76,7 @@ namespace Flex.Controllers
                 db.TrainerBookings.Add(trainerBooking);
                 db.SaveChanges();
                 SendEmails();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", trainerBooking.UserId);

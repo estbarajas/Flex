@@ -9,10 +9,10 @@
 
 <div class="container">
 
-    <h1 class="text-center">Pure CSS Circular Progress Bars</h1>
-    <p><a href="https://github.com/jumpifzero/purecss-circular-progress-bar" class="text-center">https://github.com/jumpifzero/purecss-circular-progress-bar</a></p>
+    <h1 class="text-center">Progress Bar</h1>
+    @*<p><a href="https://github.com/jumpifzero/purecss-circular-progress-bar" class="text-center">https://github.com/jumpifzero/purecss-circular-progress-bar</a></p>*@
    
-        <div class="row">
+        <div class="row pagination-centered">
 
             @*<div class="col-sm-12 col-md-4">
                 <div class="inner-content text-center">
@@ -40,15 +40,15 @@
                 </div>
             </div><!-- /.col -->*@
 
-            <div class="col-sm-6 col-md-4">
-                <div class="inner-content text-center">
+            <div class="col-sm-6 col-md-4 center-block ">
+                <div class="inner-content">
 
                     <div class="c100 @ViewBag.PClass dark big center orange">
                         <span>@ViewBag.Progress%</span>
                         <div class="slice"><div class="bar"></div><div class="fill"></div></div>
                     </div>
 
-                    <p>.big.dark.orange</p>
+                    @*<p>.big.dark.orange</p>*@
 
                 </div>
             </div><!-- /.col -->

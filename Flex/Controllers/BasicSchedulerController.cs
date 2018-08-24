@@ -18,7 +18,7 @@ namespace Flex.Controllers
         public ActionResult Index()
         {
             var sched = new DHXScheduler(this);
-            sched.Skin = DHXScheduler.Skins.Glossy;
+            sched.Skin = DHXScheduler.Skins.Flat;
             sched.LoadData = true;
             sched.EnableDataprocessor = true;
             sched.InitialDate = new DateTime(2016, 5, 5);
