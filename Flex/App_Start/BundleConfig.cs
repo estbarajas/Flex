@@ -23,7 +23,7 @@ namespace Flex
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-lux.css",
                       "~/Content/site.css",
                       "~/Content/Custom.css"
                       ));
