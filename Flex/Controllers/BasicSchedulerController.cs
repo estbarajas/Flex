@@ -28,7 +28,7 @@ namespace Flex.Controllers
         public ContentResult Data()
         {
             string currentUser = User.Identity.GetUserId();
-            var appointments = db.Events.Where(e => e.UserId == currentUser).ToList();
+            var appointments = db.Events.Where(e => e.UserId == "d5265abc-4aee-4d48-9986-885226ad1ee1").ToList();
 
             return new SchedulerAjaxData(appointments);
 

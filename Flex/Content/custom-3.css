@@ -17,3 +17,16 @@ header {
 .less-margin-top {
     margin-top: -50px;
 }
+
+.font-size-li-log-in {
+    font-size: 12px;
+}
+
+.font-magin-li-log-in {
+    margin-top: -250px;
+}
+
+nav a {
+    display: inline-block;
+    margin-right: -4px;
+}

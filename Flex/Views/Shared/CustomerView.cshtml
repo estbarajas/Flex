@@ -24,16 +24,50 @@
 
             <nav role="navigation" class="probootstrap-nav hidden-xs">
                 <ul class="probootstrap-main-nav">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="programs.html">Programs</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Subscription Plans", "Subscribe", "Customers")</li>
+                    <li>@Html.ActionLink("Request Appointment", "Create", "TrainerBookings")</li>
+                    <li>@Html.ActionLink("View Appointments", "Index", "BasicScheduler")</li>
+                    <li>@Html.ActionLink("Exercises", "Index", "Exercises")</li>
+
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Track Progress
+                            @*<span class="caret"></span>*@
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("New Progress Entry", "Create", "CustomerProgress")</li>
+                                <li>@Html.ActionLink("My Entries", "Index", "CustomerProgress")</li>
+                                <li>@Html.ActionLink("My Progress", "Bar", "CustomerProgress")</li>
+                                <li>@Html.ActionLink("Weight Calculator", "WeightCalculator", "Customers")</li>
+                            </ul>
+                        </a>
+                    </li>
+
+
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Classes
+                            @*<span class="caret"></span>*@
+                            <ul class="dropdown-menu the-nav-ul">
+                                <li>@Html.ActionLink("List of Classes", "Index", "Classes")</li>
+                                <li>@Html.ActionLink("Join Class", "Create", "CustomerClasses")</li>
+                                <li>@Html.ActionLink("My Classes", "Index", "CustomerClasses")</li>
+                            </ul>
+                        </a>
+                    </li>
                 </ul>
+                
+
+
+
+
                 <ul class="probootstrap-header-social hidden-xs">
                     <li><a href="#"><i class="icon-twitter"></i></a></li>
                     <li><a href="#"><i class="icon-facebook2"></i></a></li>
                     <li><a href="#"><i class="icon-instagram2"></i></a></li>
+                    <li class="font-size-li-log-in font-magin-li-log-in">@Html.Partial("_LoginPartial")</li>
                 </ul>
                 <div class="extra-text visible-xs">
                     <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
