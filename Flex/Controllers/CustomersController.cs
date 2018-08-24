@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using ChargeBee.Api;
@@ -67,6 +68,16 @@ namespace Flex.Controllers
             }
 
             return View();
+        }
+
+        public void SendEmails()
+        {
+            MailMessage o = new MailMessage("EnterEmailSendingFrom", "EnterEmailSendingTo", "Subscription Accepted", "Accepted, Thank You!");
+            NetworkCredential netCred = new NetworkCredential("EnterEmailSendingFrom", "ThePassword");
+            SmtpClient smtpobj = new SmtpClient("smtp.live.com", 587);
+            smtpobj.EnableSsl = true;
+            smtpobj.Credentials = netCred;
+            smtpobj.Send(o);
         }
 
         public ActionResult Subscribe()

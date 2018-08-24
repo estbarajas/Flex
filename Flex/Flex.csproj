@@ -219,6 +219,7 @@
     <Compile Include="Controllers\CustomerClassesController.cs" />
     <Compile Include="Controllers\CustomerProgressController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\ExercisesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
@@ -275,10 +276,19 @@
     <Compile Include="Migrations\201808240210250_note.Designer.cs">
       <DependentUpon>201808240210250_note.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808240347010_exercise.cs" />
+    <Compile Include="Migrations\201808240347010_exercise.Designer.cs">
+      <DependentUpon>201808240347010_exercise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808240349209_take 2.cs" />
+    <Compile Include="Migrations\201808240349209_take 2.Designer.cs">
+      <DependentUpon>201808240349209_take 2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\FlexCustomer.cs" />
     <Compile Include="Models\CustomerClasses.cs" />
     <Compile Include="Models\CustomerProgress.cs" />
@@ -604,6 +614,11 @@
     <Content Include="Views\TrainerBookings\Index.cshtml" />
     <Content Include="Views\Shared\EmployeeView.cshtml" />
     <Content Include="Views\TrainerBookings\AcceptedBookings.cshtml" />
+    <Content Include="Views\Exercises\Create.cshtml" />
+    <Content Include="Views\Exercises\Delete.cshtml" />
+    <Content Include="Views\Exercises\Details.cshtml" />
+    <Content Include="Views\Exercises\Edit.cshtml" />
+    <Content Include="Views\Exercises\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -657,6 +672,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808240210250_note.resx">
       <DependentUpon>201808240210250_note.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808240347010_exercise.resx">
+      <DependentUpon>201808240347010_exercise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808240349209_take 2.resx">
+      <DependentUpon>201808240349209_take 2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

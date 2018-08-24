@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Flex.Models;
@@ -45,6 +46,16 @@ namespace Flex.Controllers
             return View(trainerBooking);
         }
 
+        public void SendEmails()
+        {
+            MailMessage o = new MailMessage("EnterEmailSendingFrom", "EnterEmailSendingFrom", "New Booking Request", "A new session request has been made!");
+            NetworkCredential netCred = new NetworkCredential("EnterEmailSendingFrom", "ThePassword");
+            SmtpClient smtpobj = new SmtpClient("smtp.live.com", 587);
+            smtpobj.EnableSsl = true;
+            smtpobj.Credentials = netCred;
+            smtpobj.Send(o);
+        }
+
         // GET: TrainerBookings/Create
         public ActionResult Create()
         {
@@ -64,6 +75,7 @@ namespace Flex.Controllers
                 trainerBooking.UserId = User.Identity.GetUserId();
                 db.TrainerBookings.Add(trainerBooking);
                 db.SaveChanges();
+                SendEmails();
                 return RedirectToAction("Index");
             }
 
