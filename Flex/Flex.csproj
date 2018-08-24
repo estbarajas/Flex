@@ -209,6 +209,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
+    <Compile Include="Controllers\TrainerBookingsController.cs" />
     <Compile Include="Controllers\TrainersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -249,6 +250,18 @@
     <Compile Include="Migrations\201808232017234_event fk being added.Designer.cs">
       <DependentUpon>201808232017234_event fk being added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808240136264_trainer booking.cs" />
+    <Compile Include="Migrations\201808240136264_trainer booking.Designer.cs">
+      <DependentUpon>201808240136264_trainer booking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808240144267_updat-dataase.cs" />
+    <Compile Include="Migrations\201808240144267_updat-dataase.Designer.cs">
+      <DependentUpon>201808240144267_updat-dataase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808240210250_note.cs" />
+    <Compile Include="Migrations\201808240210250_note.Designer.cs">
+      <DependentUpon>201808240210250_note.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Classes.cs" />
@@ -260,6 +273,7 @@
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Trainer.cs" />
+    <Compile Include="Models\TrainerBooking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -570,6 +584,13 @@
     <Content Include="Views\CustomerProgress\Bar.cshtml" />
     <Content Include="Views\Customers\Subscribe.cshtml" />
     <Content Include="Views\BasicScheduler\Index.cshtml" />
+    <Content Include="Views\TrainerBookings\Create.cshtml" />
+    <Content Include="Views\TrainerBookings\Delete.cshtml" />
+    <Content Include="Views\TrainerBookings\Details.cshtml" />
+    <Content Include="Views\TrainerBookings\Edit.cshtml" />
+    <Content Include="Views\TrainerBookings\Index.cshtml" />
+    <Content Include="Views\Shared\EmployeeView.cshtml" />
+    <Content Include="Views\TrainerBookings\AcceptedBookings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -614,6 +635,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808232017234_event fk being added.resx">
       <DependentUpon>201808232017234_event fk being added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808240136264_trainer booking.resx">
+      <DependentUpon>201808240136264_trainer booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808240144267_updat-dataase.resx">
+      <DependentUpon>201808240144267_updat-dataase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808240210250_note.resx">
+      <DependentUpon>201808240210250_note.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

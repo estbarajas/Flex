@@ -47,6 +47,10 @@ namespace Flex.Models
 
         public System.Data.Entity.DbSet<Flex.Models.Event> Events { get; set; }
 
+        public System.Data.Entity.DbSet<Flex.Models.TrainerBooking> TrainerBookings { get; set; }
+
+        //public System.Data.Entity.DbSet<Flex.Models.ApplicationUser> ApplicationUsers { get; set; }
+
         //public System.Data.Entity.DbSet<Flex.Models.ApplicationUser> ApplicationUsers { get; set; }
 
         //public System.Data.Entity.DbSet<Flex.Models.ApplicationUser> ApplicationUsers { get; set; }
