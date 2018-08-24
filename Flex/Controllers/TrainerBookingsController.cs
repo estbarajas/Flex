@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Flex.Models;
 using Microsoft.AspNet.Identity;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace Flex.Controllers
 {
@@ -69,6 +71,30 @@ namespace Flex.Controllers
             return View(trainerBooking);
         }
 
+        public void SMSSent()
+        {
+            if (true)
+            {
+                // Find your Account Sid and Token at twilio.com/console
+                const string accountSid = "ACdd909d4bbac8a3c1a991e04b9b1c8561";
+                const string authToken = "2fe53ada44d9b861257521cbe7e787a4";
+
+                TwilioClient.Init(accountSid, authToken);
+
+                var message = MessageResource.Create(
+                    body: "Your appointment has been accepted!",
+                    from: new Twilio.Types.PhoneNumber("+13343527132"),
+                    to: new Twilio.Types.PhoneNumber("+14142421061")
+                );
+
+                Console.WriteLine(message.Sid);
+                //Console.ReadLine();
+
+            };
+
+            //return View();            
+        }
+
         // GET: TrainerBookings/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -96,6 +122,7 @@ namespace Flex.Controllers
             {
                 db.Entry(trainerBooking).State = EntityState.Modified;
                 db.SaveChanges();
+                SMSSent();
                 return RedirectToAction("Index");
             }
             //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", trainerBooking.UserId);
